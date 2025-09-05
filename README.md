@@ -24,4 +24,4 @@ Make sure you have these installed / Asegúrate de tenerlos instalados:
 ## ⚡ Installation / Instalación
 
 1. Clone this repo / Clona este repo:  
-```git clone https://github.com/pctrade/waybar.git ~/.config/waybar```
+```git clone https://github.com/pctrade/waybarpc.git ~/.config/waybar
