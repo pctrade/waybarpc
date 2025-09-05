@@ -25,4 +25,4 @@ Make sure you have these installed / Asegúrate de tenerlos instalados:
 
 1. Clone this repo / Clona este repo:  
 ```bash
-git clone https://github.com/TUUSUARIO/waybar.git ~/.config/waybar
+git clone https://github.com/pctrade/waybarpc.git ~/.config/waybar
