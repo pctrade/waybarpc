@@ -1,0 +1,176 @@
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    icon-theme: 				"Papirus";
+	window-format:              "{w} · {c} · {t}";
+}
+
+
+@import "shared.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    width:                        25em;
+    spacing:                      0px;
+    padding:                      0px;
+    margin:                       0px;
+    border:                       1px;
+    border-color:                 @selected;
+    cursor:                       "default";
+    transparency:                 "real";
+    location:                     2;
+    fullscreen:                   false;
+    enabled:                      true;
+    border-radius:                26px;
+    background-color:             @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+// Inputs //
+inputbar {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     1em;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+    background-color:            @background;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "  󰀻";
+    padding:                     1em 0.2em 0em 0em;
+    text-color:                  @selected;
+    border-radius:               16px;
+    background-color:            @background;
+
+}
+
+entry {
+    enabled:                     true;
+    border-radius:               16px;
+    spacing:                     1em;
+    padding:                     1em;
+    background-color:            @background;
+    text-color:                  @selected;
+    cursor:                      text;
+    placeholder:                 "Apps";
+    placeholder-color:           inherit;
+}
+
+imagebox {
+    padding:                     20px;
+    background-color:            transparent;
+    background-image:            url("~/.config/niri/eww/images/preview.webp", width);
+    orientation:                 vertical;
+    children:                    [ "dummy", "inputbar"];
+}
+
+listbox {
+    spacing:                     20px;
+    padding:                     0px 20px 20px 20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  @foreground;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @bg-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     15px;
+    border-radius:               20px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+

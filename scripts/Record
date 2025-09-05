@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+ISRECORD="$HOME/.config/waybar/cache/isrecording"
+VIDEO_DIR="$HOME/Videos"
+
+monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused==true).name')
+
+archivo="$VIDEO_DIR/$(date '+%Y-%m-%d_%H-%M-%S').mp4"
+
+case "$1" in
+    --stop)
+        echo "off" > "$ISRECORD"
+        killall wf-recorder 2>/dev/null
+        ;;
+    *)
+        echo "on" > "$ISRECORD"
+        wf-recorder -o "$monitor" -f "$archivo" -r 30 --audio="$(pactl get-default-sink).monitor" &
+        ;;
+esac

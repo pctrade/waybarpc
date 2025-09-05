@@ -1,0 +1,387 @@
+/* ==================== */
+/* 🎨 Variables de color */
+/* ==================== */
+@import "colors.css";
+
+
+/* ==================== */
+/* 🎛️ Estilos generales */
+/* ==================== */
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: @bg;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+  margin: 15px;
+}
+
+
+/* ==================== */
+/* 🔲 Workspaces */
+/* ==================== */
+
+#workspaces {
+   background-color: @bg-alt;
+   padding: 2px;
+   margin: 2px;
+   border-radius: 10px;
+}
+
+#workspaces button {
+   all: initial;
+   min-width: 0;
+   background: linear-gradient(to bottom, @bg-alt3, @bg);
+   padding: 6px 12px;
+   transition: all 0.1s linear;
+   border-top: 1px solid @border;
+   box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0.2);
+   color: @accent2;
+   font-weight: 800;
+   text-shadow: -1px -1px 1px rgba(205, 214, 244, 0.1),
+                0px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+#workspaces button:first-child {
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+}
+
+#workspaces button:last-child {
+   border-top-right-radius: 6px;
+   border-bottom-right-radius: 6px;
+}
+
+#workspaces button.empty {
+   color: #737373;
+   background: transparent;
+   text-shadow: none;
+   box-shadow: none;
+}
+
+#workspaces button.active {
+   box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0);
+   background: linear-gradient(to bottom, @bg-alt2, @bg-alt);
+   color: @text;
+   font-size: 25px;
+   border-top: 1px solid @border2;
+   text-shadow: 0px 0px 12px @text;
+}
+
+#workspaces button.focused {
+   background: linear-gradient(to bottom, @accent2, @bg-alt3);
+   color: @bg;
+   text-shadow: 0px 0px 12px @accent2;
+   font-size: 22px;
+   border-top: 1px solid @accent2;
+}
+
+#workspaces button.visible {
+   background: linear-gradient(to bottom, @bg-alt3, @bg-alt2);
+   color: @accent;
+   text-shadow: none;
+   font-size: 18px;
+   border-top: 1px solid @border;
+}
+
+#workspaces button.urgent {
+   background-color: @red;
+   color: @bg;
+   text-shadow: 0px 0px 8px @red;
+   font-weight: bold;
+}
+
+
+
+/* ==================== */
+/* 📊 Módulos del sistema */
+/* ==================== */
+#custom-divisor {
+  color: @accent;
+}
+
+#memory, #cpu, #disk {
+  margin-right: 10px;
+  background-color: @bg;
+  font-family: SfMono;
+  font-size: 15px;
+  font-weight: bold;
+  color: @accent;
+}
+
+#battery {
+  background-color: @bg;
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+  background-color: @bg;
+}
+
+#battery.charging {
+  background-color: @bg;
+  color: @text-dark;
+}
+
+#backlight {
+  background-color: @bg;
+}
+
+#clock {
+  font-family: SFRegular;
+  background: linear-gradient(to bottom, @bg, @bg-alt3);
+  font-size: 16px;
+  margin: 2px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 8px;
+  font-weight: bold;
+  border-bottom: 2px solid @bg-alt;
+  border-top: 1px solid @border;
+  color: @text;
+}
+
+
+/* ==================== */
+/* 🌐 Red, Audio, Batería */
+/* ==================== */
+#network, #wireplumber, #battery {
+  background: linear-gradient(to bottom, @bg-alt3, @bg);
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 6px;
+  border-top: 1px solid @border;
+  border-bottom: 2px solid @bg-alt;
+  font-family: SfMono;
+  font-weight: bold;
+  color: @text;
+  font-size: 15px;
+}
+
+#network:hover, #wireplumber:hover, #battery:hover {
+  color: @accent;
+}
+
+#network {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  margin-right: 0;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#wireplumber {
+  margin-top: 2px;
+  border-radius: 0;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+#battery {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+#custom-batteryicon.charging { background-image: url("icons/system/BatteryChargeMinimalistic-symbolic.svg"); }
+#custom-batteryicon.Full { background-image: url("icons/system/BatteryFullMinimalistic-symbolic.svg"); }
+#custom-batteryicon.Med { background-image: url("icons/system/BatteryHalfMinimalistic-symbolic.svg"); }
+#custom-batteryicon.Low { background-image: url("icons/system/BatteryLowMinimalistic-symbolic.svg"); }
+#custom-batteryicon {
+    background-repeat: no-repeat;
+    background-size: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    background-position: center;
+    border-radius: 0;
+    margin-left: -2px;
+    margin-right: -2px;
+}
+
+#custom-volumeicon.volmute { background-image: url("icons/system/VolumeCross-symbolic.svg"); }
+#custom-volumeicon.volow { background-image: url("icons/system/Volume-symbolic.svg"); }
+#custom-volumeicon.volmed { background-image: url("icons/system/VolumeSmall-symbolic.svg"); }
+#custom-volumeicon.volfull { background-image: url("icons/system/VolumeLoud-symbolic.svg"); }
+#custom-volumeicon {
+    background-repeat: no-repeat;
+    background-size: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    background-position: center;
+    border-radius: 0;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+
+#custom-bluetoothicon.BTOn { background-image: url("icons/system/BluetoothWave-symbolic.svg"); }
+#custom-bluetoothicon.BTOff { background-image: url("icons/system/Bluetooth-symbolic.svg"); }
+#custom-bluetoothicon {
+    background-repeat: no-repeat;
+    background-size: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    background-position: center;
+    border-radius: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#custom-networkicon.NetOn { background-image: url("icons/system/Wi-FiRouterMinimalistic.svg"); }
+#custom-networkicon.NetOff { background-image: url("icons/system/Netdown.svg"); }
+#custom-networkicon {
+    background-repeat: no-repeat;
+    background-size: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    background-position: center;
+    border-radius: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* ==================== */
+/* 📝 Tooltips */
+/* ==================== */
+tooltip {
+  border-radius: 8px;
+  padding: 10px;
+  background-color: @bg;
+}
+
+tooltip label {
+  padding: 5px;
+  background-color: @bg;
+  color: @accent;
+  font-family: SfRegular;
+}
+
+
+/* ==================== */
+/* 🔧 Quick Actions */
+/* ==================== */
+#custom-config, #custom-theme, #custom-wallpapers, 
+#custom-screenshot, #custom-record, #custom-picker, #custom-clipboard, #custom-nerd {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    min-width: 24px;
+    min-height: 24px;
+    margin-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#custom-logo {
+    background-repeat: no-repeat;
+    background-size: 25px;
+    min-width: 24px;
+    background-position: center;
+    min-height: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+#custom-clipboard {
+  margin-left: 10px;
+}
+
+#custom-power {
+  background: linear-gradient(to bottom, @bg, @bg-alt3);
+  font-size: 16px;
+  margin: 3px;
+  color: #665c54;
+  padding-left: 0px;
+  padding-right: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  border-bottom: 2px solid @bg-alt;
+  border-top: 1px solid @border;
+  margin-left: 3px;
+  margin-right: 10px;
+  text-shadow: -1px -1px 1px rgba(205, 214, 244, 0.1),
+                0px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+#custom-power:hover {
+  color: @red;
+}
+
+#custom-screenshot, #custom-record {
+  margin-top: 8px;
+  background-size: 24px;
+}
+
+#custom-clipboard.clipboard { background-image: url("icons/Clipboard.svg"); }
+#custom-nerd.nerd { background-image: url("icons/Glasses.svg"); }
+#custom-logo.logo { background-image: url("icons/avatar/anime_fanz.svg"); }
+#custom-config.config { background-image: url("icons/Settings-symbolic.svg"); }
+#custom-theme.theme { background-image: url("icons/Palette-symbolic.svg"); }
+#custom-wallpapers.wallpapers { background-image: url("icons/Gallery-symbolic.svg"); }
+#custom-screenshot.screenshot { background-image: url("icons/CameraMinimalistic-symbolic.svg"); }
+#custom-record.recordoff { background-image: url("icons/Videocamera-symbolic.svg"); }
+#custom-record.recordon { background-image: url("cache/recording.svg"); }
+#custom-picker.picker { background-image: url("icons/Pipette-symbolic.svg"); }
+
+
+/* ==================== */
+/* 🌤️ Clima */
+/* ==================== */
+#custom-weather {
+   background-repeat: no-repeat;
+   background-size: 20px;
+   min-width: 24px;
+   min-height: 24px;
+   padding: 0 8px;
+   margin-top: 7px;
+   font-size: large;
+   font-family: SfMono;
+   font-weight: bold;
+   margin-left: 2px;
+   color: @text;
+}
+
+/* Sol y Luna */
+#custom-weather.sunny { background-image: url("icons/weather/Sun-symbolic.svg"); }
+#custom-weather.night { background-image: url("icons/weather/Moon-symbolic.svg"); }
+
+/* Nubes */
+#custom-weather.cloudy-day { background-image: url("icons/weather/CloudSun-symbolic.svg"); }
+#custom-weather.cloudy-night { background-image: url("icons/weather/CloudyMoon-symbolic.svg"); }
+#custom-weather.clouds { background-image: url("icons/weather/Clouds-symbolic.svg"); }
+#custom-weather.cloudy { background-image: url("icons/weather/Cloud-symbolic.svg"); }
+
+/* Niebla */
+#custom-weather.fog { background-image: url("icons/weather/Fog-symbolic.svg"); }
+
+/* Lluvia */
+#custom-weather.light-rain,
+#custom-weather.drizzle,
+#custom-weather.rain,
+#custom-weather.heavy-rain { background-image: url("icons/weather/CloudRain-symbolic.svg"); }
+
+/* Nieve */
+#custom-weather.light-snow,
+#custom-weather.snow,
+#custom-weather.heavy-snow { background-image: url("icons/weather/CloudSnowfall-symbolic.svg"); }
+#custom-weather.blizzard { background-image: url("icons/weather/Snowflake-symbolic.svg"); }
+#custom-weather.light-snow-minimal { background-image: url("icons/weather/CloudSnowfallMinimalistic-symbolic.svg"); }
+
+/* Aguanieve y hielo */
+#custom-weather.sleet,
+#custom-weather.freezing-drizzle,
+#custom-weather.freezing-rain,
+#custom-weather.hail { background-image: url("icons/weather/CloudWaterdrop-symbolic.svg"); }
+
+/* Tormentas */
+#custom-weather.thunder { background-image: url("icons/weather/CloudBolt-symbolic.svg"); }
+#custom-weather.thunder-minimal { background-image: url("icons/weather/CloudBoltMinimalistic-symbolic.svg"); }
+#custom-weather.storm { background-image: url("icons/weather/CloudStorm-symbolic.svg"); }
