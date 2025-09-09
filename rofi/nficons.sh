@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SYMBOLS_FILE="$HOME/.config/waybar/rofi/nerdfont-icons-fixed.txt"
 
